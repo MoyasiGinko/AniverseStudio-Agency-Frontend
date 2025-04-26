@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
       description: "Pushing boundaries with creative solutions",
       icon: (
         <svg
-          className="w-10 h-10 mx-auto mb-4 text-blue-500"
+          className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 sm:mb-4 text-blue-500"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
       description: "Years of specialized industry knowledge",
       icon: (
         <svg
-          className="w-10 h-10 mx-auto mb-4 text-blue-500"
+          className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 sm:mb-4 text-blue-500"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
       description: "Measurable impact on your business",
       icon: (
         <svg
-          className="w-10 h-10 mx-auto mb-4 text-blue-500"
+          className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 sm:mb-4 text-blue-500"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
       description: "Always there when you need us",
       icon: (
         <svg
-          className="w-10 h-10 mx-auto mb-4 text-blue-500"
+          className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-3 sm:mb-4 text-blue-500"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -150,19 +150,19 @@ const Hero: React.FC = () => {
       {/* Background pattern */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-blue-900 to-black">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/grid-pattern.svg')] bg-repeat"></div>
+          {/* <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/grid-pattern.svg')] bg-repeat"></div> */}
         </div>
       </div>
 
       {/* Animated particles/blobs in background (optional) */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 -left-20 w-72 h-72 bg-sky-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-40 left-20 w-80 h-80 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute -top-20 sm:-top-40 -right-20 sm:-right-40 w-48 sm:w-96 h-48 sm:h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-20 sm:top-40 -left-10 sm:-left-20 w-36 sm:w-72 h-36 sm:h-72 bg-sky-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-20 sm:-bottom-40 left-10 sm:left-20 w-40 sm:w-80 h-40 sm:h-80 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
       {/* Main content */}
-      <div className="container relative mx-auto max-w-6xl px-4 py-24 md:py-32 flex flex-col lg:flex-row items-center gap-12">
+      <div className="container relative mx-auto max-w-6xl px-4 py-28 sm:py-24 md:py-32 flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -171,10 +171,10 @@ const Hero: React.FC = () => {
         >
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight"
           >
             Transforming Ideas Into{" "}
-            <span className="relative">
+            <span className="relative block sm:inline">
               <span
                 ref={textRef}
                 className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500 transition-opacity duration-500"
@@ -186,77 +186,59 @@ const Hero: React.FC = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl mb-10 text-gray-300 max-w-2xl"
+            className="text-base sm:text-lg md:text-xl mb-6 sm:mb-10 text-gray-300 max-w-2xl mx-auto lg:mx-0"
           >
-            We create cutting-edge digital solutions that elevate your brand and
-            drive business growth through innovative strategies and purposeful
-            design.
+            We elevate brands through cutting-edge digital solutions, innovative
+            strategies, and purposeful design that drives growth.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
           >
-            <Link href="/portfolio">
-              <button className="px-8 py-3 bg-gradient-to-r from-gray-950 to-blue-700 hover:from-gray-950 hover:to-blue-600 transition-all rounded-lg font-medium text-white shadow-lg shadow-blue-900/50 hover:shadow-blue-900/70 transform hover:-translate-y-1">
+            <Link href="/#featured">
+              <button className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-gray-950 to-blue-700 hover:from-gray-950 hover:to-blue-600 transition-all rounded-lg font-medium text-white shadow-lg shadow-blue-900/50 hover:shadow-blue-900/70 transform hover:-translate-y-1">
                 View Our Work
               </button>
             </Link>
             <Link href="/contact">
-              <button className="px-8 py-3 border border-white/30 backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all rounded-lg font-medium text-white transform hover:-translate-y-1">
+              <button className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 border border-white/30 backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all rounded-lg font-medium text-white transform hover:-translate-y-1">
                 Get In Touch
               </button>
             </Link>
           </motion.div>
-
-          {/* Stats counter */}
-          {/* <motion.div
-            variants={itemVariants}
-            className="mt-12 md:mt-16 flex flex-wrap gap-8 text-center sm:text-left justify-center lg:justify-start"
-          >
-            {[
-              { number: "200+", label: "Projects Completed" },
-              { number: "50+", label: "Happy Clients" },
-              { number: "10+", label: "Years Experience" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center sm:items-start"
-              >
-                <span className="text-2xl md:text-3xl font-bold text-white">
-                  {stat.number}
-                </span>
-                <span className="text-blue-400 text-sm font-medium">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </motion.div> */}
         </motion.div>
 
         {/* Hero image/illustration side */}
         <motion.div
-          className="lg:w-1/2 flex justify-center z-10"
+          className="lg:w-1/2 flex justify-center z-10 mt-8 lg:mt-0 w-full"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <div className="relative w-full max-w-lg h-80 md:h-96">
+          <div className="relative w-full max-w-sm sm:max-w-lg aspect-[4/3] sm:aspect-[16/10]">
             {/* Placeholder for hero image - replace with actual image in production */}
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-blue-600 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-blue-600 rounded-2xl overflow-hidden shadow-2xl">
+              {/* Fallback SVG for when image doesn't load */}
               <svg
-                className="w-1/2 h-1/2 text-white/30"
+                className="absolute inset-0 w-1/2 h-1/2 left-1/4 top-1/4 text-white/30"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
               </svg>
-              {/* Uncomment and use this when you have an actual image */}
+              {/* Image component */}
               <Image
                 src="/images/hero/hero1.png"
                 alt="Digital solutions illustration"
                 fill
                 className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                priority
+                onError={(e) => {
+                  // Hide broken image and show fallback
+                  e.currentTarget.style.display = "none";
+                }}
               />
             </div>
           </div>
@@ -265,26 +247,28 @@ const Hero: React.FC = () => {
 
       {/* Core values section */}
       <motion.div
-        className="container mx-auto max-w-6xl px-4 pb-20"
+        className="container mx-auto max-w-6xl px-4 pb-12 sm:pb-16 md:pb-20"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {coreValues.map((value, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-              className="p-6 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/30 transition-all hover:shadow-lg hover:shadow-blue-900/20 group"
+              className="p-4 sm:p-6 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/30 transition-all hover:shadow-lg hover:shadow-blue-900/20 group"
             >
               <div className="transform group-hover:-translate-y-1 transition-transform duration-300">
                 {value.icon}
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-1.5 sm:mb-2">
                   {value.title}
                 </h3>
-                <p className="text-gray-400 text-sm">{value.description}</p>
+                <p className="text-gray-400 text-xs sm:text-sm">
+                  {value.description}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -315,6 +299,13 @@ const Hero: React.FC = () => {
         }
         .animation-delay-4000 {
           animation-delay: 4s;
+        }
+
+        /* Ensure full-width buttons on mobile */
+        @media (max-width: 640px) {
+          a {
+            width: 100%;
+          }
         }
       `}</style>
     </section>
