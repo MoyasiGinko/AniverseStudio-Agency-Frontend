@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <>
+    <main className="bg-gray-950">
       <Hero />
       <Service />
       <Featured />
@@ -17,6 +17,6 @@ export default function Home() {
       <CTA />
       <Technology />
       <Community />
-    </>
+    </main>
   );
 }
