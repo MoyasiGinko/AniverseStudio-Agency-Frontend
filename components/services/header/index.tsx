@@ -87,28 +87,21 @@ const Header = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md py-4" : "bg-transparent py-5"
+        isScrolled
+          ? "bg-zinc-900/95 shadow-md py-4  border-slate-800/50 backdrop-blur-sm"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link
           href="/"
-          className="relative z-20 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+          className="relative z-20 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 rounded"
         >
           <div className="flex items-center">
-            {/* <Image
-              src="/images/logo/logo.png"
-              alt="AniverseStudio Logo"
-              width={180}
-              height={50}
-              className="h-10 w-32"
-              priority
-            /> */}
-
             <span
-              className={`text-2xl font-bold ${
-                isScrolled ? "text-blue-600" : "text-white"
+              className={`text-2xl font-bold transition-colors duration-300 ${
+                isScrolled ? "text-gray-100" : "text-white"
               }`}
             >
               AniverseStudio
@@ -124,41 +117,41 @@ const Header = () => {
               href={item.href}
               className={`font-medium transition-colors duration-200 hover:scale-105 transform relative group ${
                 isScrolled
-                  ? "text-gray-800 hover:text-blue-600"
-                  : "text-white hover:text-blue-300"
+                  ? "text-gray-300 hover:text-gray-100"
+                  : "text-white/90 hover:text-white"
               }`}
             >
               {item.title}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-600 transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
           <Link
             href="/get-started"
-            className={`px-5 py-2 rounded-full font-medium transition all duration-300 transform hover:scale-105 hover:shadow-lg ${
+            className={`px-5 py-2 rounded-full font-medium transition all duration-300 transform hover:scale-105 hover:shadow-lg border ${
               isScrolled
-                ? "bg-blue-600 text-white hover:bg-blue-700"
-                : "bg-white text-blue-600 hover:bg-blue-50"
+                ? "bg-slate-800 text-gray-100 hover:bg-slate-700 border-slate-700"
+                : "bg-slate-800/80 text-gray-100 hover:bg-slate-800 border-slate-700/50 backdrop-blur-sm"
             }`}
           >
-            Register Now
+            Get Started
           </Link>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden z-20 text-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-full p-1"
+          className="md:hidden z-20 text-2xl focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 rounded-full p-1"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? (
             <IoMdClose
-              className={isScrolled ? "text-gray-800" : "text-white"}
+              className={isScrolled ? "text-gray-100" : "text-white"}
               aria-hidden="true"
             />
           ) : (
             <HiMenuAlt4
-              className={isScrolled ? "text-gray-800" : "text-white"}
+              className={isScrolled ? "text-gray-100" : "text-white"}
               aria-hidden="true"
             />
           )}
@@ -173,14 +166,14 @@ const Header = () => {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="fixed inset-0 bg-gradient-to-b from-blue-900 to-blue-700 flex flex-col z-10 pt-24 px-6"
+              className="fixed inset-0 bg-gradient-to-b from-zinc-900 to-slate-900 flex flex-col z-10 pt-24 px-6"
             >
               <nav className="flex flex-col space-y-6 items-center">
                 {navItems.map((item) => (
                   <motion.div key={item.title} variants={menuItemVariants}>
                     <Link
                       href={item.href}
-                      className="text-white text-xl font-medium hover:text-blue-200 transition-colors flex items-center"
+                      className="text-gray-100 text-xl font-medium hover:text-gray-300 transition-colors flex items-center"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.title}
@@ -190,7 +183,7 @@ const Header = () => {
                 <motion.div variants={menuItemVariants}>
                   <Link
                     href="/get-started"
-                    className="mt-4 px-8 py-3 bg-white text-blue-600 rounded-full text-xl font-medium hover:bg-blue-50 transition-all hover:shadow-lg flex items-center justify-center"
+                    className="mt-4 px-8 py-3 bg-slate-800 text-gray-100 rounded-full text-xl font-medium hover:bg-slate-700 transition-all hover:shadow-lg flex items-center justify-center border border-slate-700"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Get Started
@@ -205,7 +198,7 @@ const Header = () => {
               >
                 <a
                   href="#"
-                  className="text-white hover:text-blue-200 transition-colors"
+                  className="text-gray-400 hover:text-gray-200 transition-colors"
                   aria-label="Visit our Facebook"
                 >
                   <svg
@@ -223,7 +216,7 @@ const Header = () => {
                 </a>
                 <a
                   href="#"
-                  className="text-white hover:text-blue-200 transition-colors"
+                  className="text-gray-400 hover:text-gray-200 transition-colors"
                   aria-label="Visit our Twitter"
                 >
                   <svg
@@ -237,7 +230,7 @@ const Header = () => {
                 </a>
                 <a
                   href="#"
-                  className="text-white hover:text-blue-200 transition-colors"
+                  className="text-gray-400 hover:text-gray-200 transition-colors"
                   aria-label="Visit our LinkedIn"
                 >
                   <svg
