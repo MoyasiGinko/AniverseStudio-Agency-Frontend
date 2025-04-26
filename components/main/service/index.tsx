@@ -6,7 +6,7 @@ import styles from "./Hero.module.css";
 
 const Service: React.FC = () => {
   return (
-    <section className="py-20 bg-transparent">
+    <section className="py-20 bg-black">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16">Our Services</h2>
         <div className="grid md:grid-cols-3 gap-10">

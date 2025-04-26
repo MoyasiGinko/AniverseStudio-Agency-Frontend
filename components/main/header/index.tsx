@@ -98,14 +98,22 @@ const Header = () => {
           className="relative z-20 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
         >
           <div className="flex items-center">
-            <Image
-              src="/images/logo.svg"
+            {/* <Image
+              src="/images/logo/logo.png"
               alt="AniverseStudio Logo"
               width={180}
               height={50}
-              className="h-10 w-auto"
+              className="h-10 w-32"
               priority
-            />
+            /> */}
+
+            <span
+              className={`text-2xl font-bold ${
+                isScrolled ? "text-blue-600" : "text-white"
+              }`}
+            >
+              AniverseStudio
+            </span>
           </div>
         </Link>
 
