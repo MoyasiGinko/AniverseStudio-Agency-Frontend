@@ -76,10 +76,10 @@ const SignInPage = () => {
       <div className="md:w-1/2 p-8 flex items-center justify-center">
         <div className="w-full max-w-md">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-gray-800">
+            <h2 className="text-2xl font-bold text-gray-100">
               Sign in to your account
             </h2>
-            <p className="mt-2 text-gray-600">
+            <p className="mt-2 text-gray-200">
               Enter your credentials to continue
             </p>
           </div>
