@@ -127,7 +127,7 @@ const Header = () => {
             </Link>
           ))}
           <Link
-            href="/get-started"
+            href="/auth/sign-in"
             className={`px-5 py-2 rounded-full font-medium transition all duration-300 transform hover:scale-105 hover:shadow-lg border ${
               isScrolled
                 ? "bg-slate-800 text-gray-100 hover:bg-slate-700 border-slate-700"
