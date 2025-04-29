@@ -12,7 +12,7 @@ const Header = () => {
 
   // Navigation items with active state tracking
   const navItems = [
-    { title: "Home", href: "/" },
+    // { title: "Home", href: "/" },
     { title: "Services", href: "/services" },
     { title: "AI Tools", href: "/ai-tools" },
     { title: "Portfolio", href: "/portfolio" },
