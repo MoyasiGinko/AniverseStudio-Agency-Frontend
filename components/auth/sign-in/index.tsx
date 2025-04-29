@@ -46,10 +46,11 @@ const SignInPage = () => {
         <div className="max-w-md">
           <div className="mb-8">
             <Image
-              src="/logo-white.svg"
+              src="/images/logo/logo.png"
               alt="AniverseStudio Logo"
               width={200}
               height={60}
+              className="w-32 h-26 rounded-2xl"
             />
           </div>
           <h1 className="text-3xl font-bold mb-4">
