@@ -69,12 +69,12 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gradient-to-br from-zinc-950 via-blue-950 to-zinc-950 text-white backdrop-blur-md bg-opacity-80">
       {/* Sidebar */}
-      <div className="w-64 bg-indigo-800 text-white">
+      <div className="w-64 bg-gradient-to-t from-gray-950/90 via-gray-950/50 to-gray-950/90 text-white backdrop-blur-sm border-r border-indigo-800/30">
         <div className="p-4">
           <h1 className="text-2xl font-bold">AniverseStudio</h1>
-          <p className="text-indigo-200 text-sm">Web Development Agency</p>
+          <p className="text-indigo-200 text-sm">Dashboard</p>
         </div>
         <div className="mt-6">
           <UserInfo
@@ -120,9 +120,9 @@ const Dashboard: React.FC = () => {
 
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto">
-        <header className="bg-white shadow-sm">
+        <header className="bg-gradient-to-r from-black/50 via-blue-950/30 to-blue-950/10 shadow-lg m-2 rounded-lg backdrop-blur-sm">
           <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-            <h1 className="text-2xl font-semibold text-gray-900">
+            <h1 className="text-2xl font-semibold text-gray-50">
               {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
             </h1>
           </div>
@@ -141,7 +141,7 @@ const UserInfo: React.FC<{ name: string; email: string; role: UserRole }> = ({
   email,
   role,
 }) => (
-  <div className="px-4 py-3 border-t border-b border-indigo-700">
+  <div className="px-4 py-3 bg-gradient-to-r from-indigo-900/80 to-indigo-800/60 backdrop-blur-sm rounded-md mb-4 shadow-lg border border-indigo-700/30">
     <div className="flex items-center">
       <div className="h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center">
         <FaUser className="text-white" />
@@ -178,32 +178,32 @@ const SidebarLink: React.FC<{
 
 // Content Components
 const OverviewContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => (
-  <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+  <div className="bg-white/10 shadow overflow-hidden sm:rounded-lg backdrop-blur-sm">
     <div className="px-4 py-5 sm:px-6">
-      <h3 className="text-lg leading-6 font-medium text-gray-900">
+      <h3 className="text-lg leading-6 font-medium text-white">
         Dashboard Overview
       </h3>
-      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+      <p className="mt-1 max-w-2xl text-sm text-gray-300">
         Welcome to your AniverseStudio dashboard.
       </p>
     </div>
-    <div className="border-t border-gray-200">
+    <div className="border-t border-gray-700/30">
       <dl>
-        <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">Your Role</dt>
-          <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+        <div className="bg-white/5 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt className="text-sm font-medium text-gray-300">Your Role</dt>
+          <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">
             {userRole.charAt(0).toUpperCase() + userRole.slice(1)}
           </dd>
         </div>
-        <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">Active Projects</dt>
-          <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+        <div className="bg-white/5 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt className="text-sm font-medium text-gray-300">Active Projects</dt>
+          <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">
             {userRole === "admin" ? "12" : userRole === "moderator" ? "8" : "3"}
           </dd>
         </div>
-        <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">Recent Activity</dt>
-          <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+        <div className="bg-white/5 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt className="text-sm font-medium text-gray-300">Recent Activity</dt>
+          <dd className="mt-1 text-sm text-white sm:mt-0 sm:col-span-2">
             Last login: {new Date().toLocaleDateString()}
           </dd>
         </div>
@@ -231,58 +231,56 @@ const ProjectsContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => {
   ];
 
   return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div className="bg-white/10 shadow overflow-hidden sm:rounded-lg backdrop-blur-sm">
       <div className="px-4 py-5 sm:px-6 flex justify-between items-center">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">
-          Projects
-        </h3>
+        <h3 className="text-lg leading-6 font-medium text-white">Projects</h3>
         {(userRole === "admin" || userRole === "moderator") && (
-          <button className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+          <button className="px-4 py-2 bg-indigo-600/80 text-white rounded-md hover:bg-indigo-700/80 backdrop-blur-sm">
             Add Project
           </button>
         )}
       </div>
-      <div className="border-t border-gray-200">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      <div className="border-t border-gray-700/30">
+        <table className="min-w-full divide-y divide-gray-700/30">
+          <thead className="bg-black/20">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Name
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Client
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-black/10 divide-y divide-gray-700/30">
             {projects.map((project) => (
               <tr key={project.id}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                   {project.name}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                   {project.status}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                   {project.client}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                  <button className="text-indigo-600 hover:text-indigo-900 mr-3">
+                  <button className="text-indigo-300 hover:text-indigo-100 mr-3">
                     View
                   </button>
                   {(userRole === "admin" || userRole === "moderator") && (
-                    <button className="text-indigo-600 hover:text-indigo-900">
+                    <button className="text-indigo-300 hover:text-indigo-100">
                       Edit
                     </button>
                   )}
                   {userRole === "admin" && (
-                    <button className="text-red-600 hover:text-red-900 ml-3">
+                    <button className="text-red-300 hover:text-red-100 ml-3">
                       Delete
                     </button>
                   )}
@@ -310,65 +308,65 @@ const UsersContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => {
   ];
 
   return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+    <div className="bg-white/10 shadow overflow-hidden sm:rounded-lg backdrop-blur-sm">
       <div className="px-4 py-5 sm:px-6 flex justify-between items-center">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">Users</h3>
+        <h3 className="text-lg leading-6 font-medium text-white">Users</h3>
         {userRole === "admin" && (
-          <button className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+          <button className="px-4 py-2 bg-indigo-600/80 text-white rounded-md hover:bg-indigo-700/80 backdrop-blur-sm">
             Add User
           </button>
         )}
       </div>
-      <div className="border-t border-gray-200">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      <div className="border-t border-gray-700/30">
+        <table className="min-w-full divide-y divide-gray-700/30">
+          <thead className="bg-black/20">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Name
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Email
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Role
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-black/10 divide-y divide-gray-700/30">
             {users.map((user) => (
               <tr key={user.id}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                   {user.name}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                   {user.email}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                   <span
-                    className={`px-2 py-1 text-xs rounded-full ${
+                    className={`px-2 py-1 text-xs rounded-full backdrop-blur-sm ${
                       user.role === "admin"
-                        ? "bg-red-100 text-red-800"
+                        ? "bg-red-500/30 text-red-100"
                         : user.role === "moderator"
-                        ? "bg-yellow-100 text-yellow-800"
-                        : "bg-green-100 text-green-800"
+                        ? "bg-yellow-500/30 text-yellow-100"
+                        : "bg-green-500/30 text-green-100"
                     }`}
                   >
                     {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                  <button className="text-indigo-600 hover:text-indigo-900 mr-3">
+                  <button className="text-indigo-300 hover:text-indigo-100 mr-3">
                     View
                   </button>
                   {userRole === "admin" && (
                     <>
-                      <button className="text-indigo-600 hover:text-indigo-900">
+                      <button className="text-indigo-300 hover:text-indigo-100">
                         Edit
                       </button>
-                      <button className="text-red-600 hover:text-red-900 ml-3">
+                      <button className="text-red-300 hover:text-red-100 ml-3">
                         Delete
                       </button>
                     </>
@@ -384,22 +382,22 @@ const UsersContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => {
 };
 
 const SettingsContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => (
-  <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+  <div className="bg-white/10 shadow overflow-hidden sm:rounded-lg backdrop-blur-sm">
     <div className="px-4 py-5 sm:px-6">
-      <h3 className="text-lg leading-6 font-medium text-gray-900">
+      <h3 className="text-lg leading-6 font-medium text-white">
         Account Settings
       </h3>
-      <p className="mt-1 max-w-2xl text-sm text-gray-500">
+      <p className="mt-1 max-w-2xl text-sm text-gray-300">
         Manage your profile and preferences.
       </p>
     </div>
-    <div className="border-t border-gray-200">
+    <div className="border-t border-gray-700/30">
       <form className="px-4 py-5 sm:p-6">
         <div className="grid grid-cols-6 gap-6">
           <div className="col-span-6 sm:col-span-3">
             <label
               htmlFor="first-name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-200"
             >
               First name
             </label>
@@ -408,14 +406,14 @@ const SettingsContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => (
               name="first-name"
               id="first-name"
               autoComplete="given-name"
-              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border"
+              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm bg-white/10 text-white border-gray-700/30 rounded-md p-2 border"
             />
           </div>
 
           <div className="col-span-6 sm:col-span-3">
             <label
               htmlFor="last-name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-200"
             >
               Last name
             </label>
@@ -424,14 +422,14 @@ const SettingsContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => (
               name="last-name"
               id="last-name"
               autoComplete="family-name"
-              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border"
+              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm bg-white/10 text-white border-gray-700/30 rounded-md p-2 border"
             />
           </div>
 
           <div className="col-span-6 sm:col-span-4">
             <label
               htmlFor="email-address"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-200"
             >
               Email address
             </label>
@@ -440,7 +438,7 @@ const SettingsContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => (
               name="email-address"
               id="email-address"
               autoComplete="email"
-              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border"
+              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm bg-white/10 text-white border-gray-700/30 rounded-md p-2 border"
             />
           </div>
 
@@ -448,14 +446,14 @@ const SettingsContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => (
             <div className="col-span-6 sm:col-span-3">
               <label
                 htmlFor="role"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-200"
               >
                 Role
               </label>
               <select
                 id="role"
                 name="role"
-                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full py-2 px-3 border border-gray-700/30 bg-white/10 text-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               >
                 <option value="user">User</option>
                 <option value="moderator">Moderator</option>
@@ -467,7 +465,7 @@ const SettingsContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => (
           <div className="col-span-6">
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-200"
             >
               Change Password
             </label>
@@ -475,14 +473,14 @@ const SettingsContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => (
               type="password"
               name="password"
               id="password"
-              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md p-2 border"
+              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm bg-white/10 text-white border-gray-700/30 rounded-md p-2 border"
             />
           </div>
         </div>
         <div className="mt-6">
           <button
             type="submit"
-            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600/80 hover:bg-indigo-700/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 backdrop-blur-sm"
           >
             Save
           </button>
@@ -493,15 +491,15 @@ const SettingsContent: React.FC<{ userRole: UserRole }> = ({ userRole }) => (
 );
 
 const UnauthorizedContent: React.FC = () => (
-  <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+  <div className="bg-white/10 shadow overflow-hidden sm:rounded-lg backdrop-blur-sm">
     <div className="px-4 py-5 sm:p-6 text-center">
-      <div className="text-red-600 text-5xl mb-4">
+      <div className="text-red-300 text-5xl mb-4">
         <FaUser />
       </div>
-      <h3 className="text-lg leading-6 font-medium text-gray-900 mb-2">
+      <h3 className="text-lg leading-6 font-medium text-white mb-2">
         Access Denied
       </h3>
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-gray-300">
         You don't have permission to access this section.
         <br />
         Please contact an administrator if you need access.
