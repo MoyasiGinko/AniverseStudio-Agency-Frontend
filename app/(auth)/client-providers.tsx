@@ -2,6 +2,7 @@
 
 import { RouteProvider } from "@/utils/RouteContext";
 import { SessionProvider } from "next-auth/react";
+import { Suspense } from "react";
 
 export default function ClientProviders({
   children,
@@ -10,7 +11,9 @@ export default function ClientProviders({
 }) {
   return (
     <SessionProvider>
-      <RouteProvider>{children}</RouteProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <RouteProvider>{children}</RouteProvider>
+      </Suspense>
     </SessionProvider>
   );
 }

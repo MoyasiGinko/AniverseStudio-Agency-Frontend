@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/globals.css";
 import Header from "@/components/ai-tools/header";
 import Footer from "@/components/ai-tools/footer";
+
 import ClientProviders from "./client-providers";
 
 // Define the fonts

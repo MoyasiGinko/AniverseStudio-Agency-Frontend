@@ -1,5 +1,4 @@
 import Dashboard from "@/components/auth/dashboard";
-
 import { metadata } from "../../metadata";
 
 export { metadata };
