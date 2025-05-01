@@ -16,7 +16,7 @@ const Service: React.FC = () => {
       title: "ChatGPT Plus",
       icon: (
         <svg
-          className="w-10 h-10"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ const Service: React.FC = () => {
         </svg>
       ),
       description:
-        "Monthly ChatGPT Plus subscription service providing access to GPT-4, faster response times, and priority feature access for businesses and professionals.",
+        "Premium AI assistant subscription offering GPT-4 access, faster responses, and priority features for professionals.",
       features: [
         "Access to GPT-4 model",
         "Faster response times",
@@ -48,10 +48,10 @@ const Service: React.FC = () => {
       image: "/images/ai-tools/chatgpt.png",
     },
     {
-      title: "Claude AI",
+      title: "Claude AI Plus",
       icon: (
         <svg
-          className="w-10 h-10"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -66,7 +66,7 @@ const Service: React.FC = () => {
         </svg>
       ),
       description:
-        "Claude AI is a powerful AI assistant designed to enhance productivity and streamline workflows. It offers advanced natural language processing capabilities, making it ideal for businesses looking to leverage AI for customer support, content generation, and more.",
+        "Advanced AI assistant with superior natural language processing for customer support and content generation.",
       features: [
         "Advanced natural language processing",
         "Contextual understanding",
@@ -80,7 +80,7 @@ const Service: React.FC = () => {
       title: "Canva Pro",
       icon: (
         <svg
-          className="w-10 h-10"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -95,7 +95,7 @@ const Service: React.FC = () => {
         </svg>
       ),
       description:
-        "Canva Pro is a premium design tool that empowers users to create stunning graphics, presentations, and marketing materials with ease. It offers a vast library of templates, images, and design elements, making it perfect for businesses and individuals looking to enhance their visual content.",
+        "Premium design platform offering extensive templates, elements, and tools for creating professional marketing materials and graphics.",
       features: [
         "Access to premium templates and images",
         "Advanced design tools and features",
@@ -162,9 +162,10 @@ const Service: React.FC = () => {
             Our AI Tools
           </h2>
           <p className="max-w-2xl mx-auto text-gray-400 text-lg">
-            We provide end-to-end solutions to help businesses transform their
-            digital presence and achieve exceptional results in the modern
-            market.
+            We provide premium AI tools subscriptions to enhance your workflow
+            with cutting-edge technology. Our carefully selected offerings help
+            businesses streamline tasks and boost creativity in today's digital
+            landscape.
           </p>
         </motion.div>
 
@@ -183,60 +184,88 @@ const Service: React.FC = () => {
               onMouseLeave={() => setActiveIndex(null)}
               className="relative group"
             >
-              <div className="relative bg-gradient-to-br from-slate-800/80 to-zinc-800/80 rounded-2xl overflow-hidden border border-slate-700/50 hover:border-slate-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-black/10 h-full z-10">
+              <div className="relative bg-gradient-to-br from-slate-800/80 to-zinc-800/80 rounded-2xl overflow-hidden border border-slate-700/50 hover:border-slate-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-black/10 h-full z-10 flex flex-col">
                 {/* Service card content */}
-                <div className="p-8 md:p-10">
-                  {/* Icon with gradient background */}
-                  <div
-                    className={`inline-flex items-center justify-center w-16 h-16 mb-6 rounded-xl bg-stone-800 text-gray-300 shadow-lg border border-slate-700/30`}
-                  >
-                    <div className="transform group-hover:scale-110 transition-transform duration-300">
-                      {service.icon}
+                <div className="p-8 md:p-10 flex-grow">
+                  {/* Icon and title in one row */}
+                  <div className="flex items-center mb-6">
+                    <div
+                      className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-800 text-gray-300 shadow-sm border border-slate-700/30 mr-3`}
+                    >
+                      <div className="transform group-hover:scale-110 transition-transform duration-300">
+                        {service.icon}
+                      </div>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-100 group-hover:text-gray-200 transition-colors">
+                      {service.title}
+                    </h3>
+                  </div>
+
+                  {/* Service image with fixed height and width */}
+                  <div className="mb-2 rounded-lg overflow-hidden h-48 w-full">
+                    <div className="w-[300px] h-[180px] mx-auto">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={300}
+                        height={180}
+                        className="w-full h-full object-fill transition-transform group-hover:scale-105 duration-300"
+                        style={{ objectFit: "fill" }}
+                      />
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-4 text-gray-100 group-hover:text-gray-200 transition-colors">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-gray-400 mb-6">{service.description}</p>
+                  <p className="text-gray-400 mb-2">{service.description}</p>
 
                   {/* Technologies list */}
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {service.features.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="text-xs font-medium px-3 py-1 rounded-full bg-slate-900/50 text-gray-300 border border-slate-700/50"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Call to action */}
-                  <Link
-                    href={`/services/${service.title
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
+                  {/* <div className="flex flex-wrap gap-2 mb-8">
+                {service.features.map((tech, techIndex) => (
+                  <span
+                  key={techIndex}
+                  className="text-xs font-medium px-3 py-1 rounded-full bg-slate-900/50 text-gray-300 border border-slate-700/50"
                   >
-                    <div className="inline-flex items-center text-gray-300 hover:text-gray-100 font-medium transition-colors">
-                      Learn More
-                      <svg
-                        className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
-                    </div>
-                  </Link>
+                  {tech}
+                  </span>
+                ))}
+                </div> */}
+                </div>
+
+                {/* Call to action - positioned at the bottom */}
+                <div className="p-8 pt-0 md:px-10 mt-auto">
+                  <div className="flex justify-between items-center">
+                    <Link
+                      href={`/services/${service.title
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
+                    >
+                      <div className="inline-flex items-center text-gray-300 hover:text-gray-100 font-medium transition-colors">
+                        Learn More
+                        <svg
+                          className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          />
+                        </svg>
+                      </div>
+                    </Link>
+                    <Link
+                      href={`/purchase/${service.title
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
+                    >
+                      <button className="px-4 py-2 bg-slate-700/80 hover:bg-slate-600/80 rounded-lg text-gray-200 font-medium transition-all duration-300 cursor-pointer">
+                        Get It Now
+                      </button>
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Decorative gradient bar at bottom */}
@@ -263,7 +292,7 @@ const Service: React.FC = () => {
         >
           <Link href="/services">
             <button className="px-8 py-3 bg-slate-800/50 hover:bg-slate-800/70 backdrop-blur-sm border border-slate-700/50 rounded-lg text-gray-300 hover:text-gray-100 font-medium transition-all duration-300 hover:shadow-lg hover:shadow-black/10">
-              View All Services
+              View All Tools
             </button>
           </Link>
         </motion.div>
